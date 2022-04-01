@@ -8,17 +8,21 @@
 
 /* Begin PBXBuildFile section */
 		34A2630027F7485200EEF4B9 /* Card_GameApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A262FF27F7485200EEF4B9 /* Card_GameApp.swift */; };
-		34A2630227F7485200EEF4B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A2630127F7485200EEF4B9 /* ContentView.swift */; };
+		34A2630227F7485200EEF4B9 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A2630127F7485200EEF4B9 /* MainView.swift */; };
 		34A2630427F7485400EEF4B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A2630327F7485400EEF4B9 /* Assets.xcassets */; };
 		34A2630727F7485400EEF4B9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 34A2630627F7485400EEF4B9 /* Preview Assets.xcassets */; };
+		34A2631127F7493B00EEF4B9 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A2631027F7493B00EEF4B9 /* Card.swift */; };
+		34A2631327F75E4C00EEF4B9 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34A2631227F75E4C00EEF4B9 /* ContentModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		34A262FC27F7485200EEF4B9 /* Card_Game.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Card_Game.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		34A262FF27F7485200EEF4B9 /* Card_GameApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card_GameApp.swift; sourceTree = "<group>"; };
-		34A2630127F7485200EEF4B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		34A2630127F7485200EEF4B9 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		34A2630327F7485400EEF4B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		34A2630627F7485400EEF4B9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		34A2631027F7493B00EEF4B9 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		34A2631227F75E4C00EEF4B9 /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +56,9 @@
 			isa = PBXGroup;
 			children = (
 				34A262FF27F7485200EEF4B9 /* Card_GameApp.swift */,
-				34A2630127F7485200EEF4B9 /* ContentView.swift */,
+				34A2630E27F7488600EEF4B9 /* Models */,
+				34A2630D27F7488000EEF4B9 /* Views */,
+				34A2630F27F7488E00EEF4B9 /* ViewModels */,
 				34A2630327F7485400EEF4B9 /* Assets.xcassets */,
 				34A2630527F7485400EEF4B9 /* Preview Content */,
 			);
@@ -65,6 +71,30 @@
 				34A2630627F7485400EEF4B9 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		34A2630D27F7488000EEF4B9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				34A2630127F7485200EEF4B9 /* MainView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		34A2630E27F7488600EEF4B9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				34A2631027F7493B00EEF4B9 /* Card.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		34A2630F27F7488E00EEF4B9 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				34A2631227F75E4C00EEF4B9 /* ContentModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				34A2630227F7485200EEF4B9 /* ContentView.swift in Sources */,
+				34A2630227F7485200EEF4B9 /* MainView.swift in Sources */,
+				34A2631327F75E4C00EEF4B9 /* ContentModel.swift in Sources */,
+				34A2631127F7493B00EEF4B9 /* Card.swift in Sources */,
 				34A2630027F7485200EEF4B9 /* Card_GameApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

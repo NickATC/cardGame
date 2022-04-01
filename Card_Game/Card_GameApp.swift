@@ -11,7 +11,8 @@ import SwiftUI
 struct Card_GameApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+                .environmentObject(ContentModel())
         }
     }
 }

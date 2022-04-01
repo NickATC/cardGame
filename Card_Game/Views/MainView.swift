@@ -11,7 +11,9 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var model: ContentModel
-    var stat: String = ""
+    var status: String {
+        return model.deckOfCards?.success! ?? false ? "Valid deck loaded!" : "No cards available"
+    }
 
     
     var body: some View {
@@ -46,12 +48,12 @@ struct MainView: View {
                 //Card status indicators
                 GroupBox  {
                 
-                    Text("Deck Status: \(model.deckOfCards?.deck_id ?? "noid")")
+                    Text(status)
                         .font(.footnote)
-                    Text("      Available Cards:   \(model.deckOfCards?.remaining ?? 0)")
+                    Text("Available Cards:   \(model.deckOfCards?.remaining ?? 0)")
                         .font(.footnote)
                 } label: {
-                    Text("Deck card status:")
+                    Text("Deck card information:")
                         .font(.caption)
                         .foregroundColor(.gray)
                 }
@@ -69,12 +71,17 @@ struct MainView: View {
                         .frame(width: 150, height: 250)
                         .padding()
                     
+                    if ((model.cardDraw?.success) != nil) {
+                        Text("\(model.cardDraw?.cards?[0].value! ?? "no value") of \(model.cardDraw?.cards?[0].suit! ?? "no suit")")
+                            .foregroundColor(.white)
+                            .font(.caption2)
+                    }
+                    
+                    
                     //Button for a new card!
-                    
-                    
                     Button {
                         //API call for a new card!
-                        
+                        model.drawCard(cardDeckId: (model.deckOfCards?.deck_id!)!)
                     } label: {
                         Text("Get new card!")
                     }
@@ -84,6 +91,7 @@ struct MainView: View {
                     .foregroundColor(.black)
                     
                 }
+                .opacity(!(model.deckOfCards?.success! ?? false) ? 0 : 1)
                             
                 
             }
@@ -95,5 +103,6 @@ struct MainView: View {
 struct MainView_Previews: PreviewProvider {
     static var previews: some View {
         MainView()
+            .environmentObject(ContentModel())
     }
 }

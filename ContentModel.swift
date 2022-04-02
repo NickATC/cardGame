@@ -12,12 +12,14 @@ class ContentModel: ObservableObject {
     
     @EnvironmentObject var model: ContentModel
 
+    @Published var remainingCards: Int?
+    
     @Published var deckOfCards: DeckOfCards?
     @Published var cardDraw: CardDraw?
     
     func createNewDeck(){
         //Creates a new deck using a new API call
-        
+    
         //Steps to follow:
         //Create URL
         //Create URL request
@@ -52,6 +54,9 @@ class ContentModel: ObservableObject {
                         DispatchQueue.main.async {
                             //Assign to the appropriate property
                             self.deckOfCards = result
+                            
+                            //Assign card remainingCards value
+                            self.remainingCards = result.remaining
                         }
                  }
                     catch {
@@ -62,8 +67,13 @@ class ContentModel: ObservableObject {
             
             //Start the DataTask
             dataTask.resume()
+            
+            
     
         }
+        
+        
+        
     }
     
     func drawCard(cardDeckId: String){
@@ -75,9 +85,7 @@ class ContentModel: ObservableObject {
         //Get URL session
         //Create dataTask
         //Start the DataTask
-        
-        print("new card is asked to the API")
-        
+                
         //Create URL
         let urlString = "\(Constants.apiUrl)\(cardDeckId)/draw/?count=1"
         let url = URL(string: urlString)
@@ -105,6 +113,9 @@ class ContentModel: ObservableObject {
                         DispatchQueue.main.async {
                             //Assign to the appropriate property
                             self.cardDraw = result
+                            
+                            //Assign card remainingCards value
+                            self.remainingCards = result.remaining
                         }
                  }
                     catch {
@@ -115,8 +126,27 @@ class ContentModel: ObservableObject {
             
             //Start the DataTask
             dataTask.resume()
+            
+            
     
         }
+        
+
+    }
+    
+    
+    func describeCard() -> String {
+        var cardDescription = ""
+        
+        if remainingCards == nil {
+            cardDescription = ""
+        } else if remainingCards! == 52 {
+            cardDescription = ""
+        } else {
+            cardDescription = "\(cardDraw?.cards?[0].value! ?? "no value") of \(cardDraw?.cards?[0].suit! ?? "no suit")"
+        }
+        
+     return cardDescription
     }
     
     

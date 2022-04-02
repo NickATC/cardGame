@@ -11,7 +11,11 @@ import SwiftUI
 struct MainView: View {
     
     @EnvironmentObject var model: ContentModel
-    var status: String {
+    var isNewDeck: Bool {
+        return ((model.deckOfCards?.remaining ?? 0) == 52) ? true : false
+    }
+    
+    var statusText: String {
         return model.deckOfCards?.success! ?? false ? "Valid deck loaded!" : "No cards available"
     }
 
@@ -36,7 +40,6 @@ struct MainView: View {
                     //API call
                     model.createNewDeck()
                     
-                    //print(model.deckOfCards!)
                 } label: {
                     Text("Get new deck of cards")
                 }
@@ -48,9 +51,9 @@ struct MainView: View {
                 //Card status indicators
                 GroupBox  {
                 
-                    Text(status)
+                    Text(statusText)
                         .font(.footnote)
-                    Text("Available Cards:   \(model.deckOfCards?.remaining ?? 0)")
+                    Text("Available Cards:   \(model.remainingCards ?? 0)")
                         .font(.footnote)
                 } label: {
                     Text("Deck card information:")
@@ -71,13 +74,12 @@ struct MainView: View {
                         .frame(width: 150, height: 250)
                         .padding()
                     
-                    if ((model.cardDraw?.success) != nil) {
-                        Text("\(model.cardDraw?.cards?[0].value! ?? "no value") of \(model.cardDraw?.cards?[0].suit! ?? "no suit")")
-                            .foregroundColor(.white)
-                            .font(.caption2)
-                    }
+                    let cardDescription = model.describeCard()
                     
-                    
+                    Text(cardDescription)
+                        .foregroundColor(.white)
+                        .font(.caption2)
+
                     //Button for a new card!
                     Button {
                         //API call for a new card!
@@ -91,7 +93,7 @@ struct MainView: View {
                     .foregroundColor(.black)
                     
                 }
-                .opacity(!(model.deckOfCards?.success! ?? false) ? 0 : 1)
+                .opacity(!(isNewDeck) ? 0 : 1)
                             
                 
             }

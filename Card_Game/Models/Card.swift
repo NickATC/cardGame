@@ -16,12 +16,15 @@ class DeckOfCards: Decodable, Identifiable, ObservableObject {
 }
 
 
+
 class CardDraw: Decodable, Identifiable, ObservableObject  {
     var success: Bool?
     var deck_id: String?
     var cards: [Card]?
     var remaining: Int?
 }
+
+
 
 
 class Card: Decodable, Identifiable, ObservableObject {
@@ -32,30 +35,10 @@ class Card: Decodable, Identifiable, ObservableObject {
     var suit: String?
 }
 
+
+
+
 class ImageSvgPng: Decodable, Identifiable, ObservableObject {
     var svg: String?
     var png: String?
 }
-
-
-
-
-
-// CardStraw JSON format
-//{
-//  "success": true,
-//  "deck_id": "do7su94ag74p",
-//  "cards": [
-//    {
-//      "code": "4S",
-//      "image": "https://deckofcardsapi.com/static/img/4S.png",
-//      "images": {
-//        "svg": "https://deckofcardsapi.com/static/img/4S.svg",
-//        "png": "https://deckofcardsapi.com/static/img/4S.png"
-//      },
-//      "value": "4",
-//      "suit": "SPADES"
-//    }
-//  ],
-//  "remaining": 51
-//}

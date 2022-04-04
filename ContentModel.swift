@@ -67,15 +67,10 @@ class ContentModel: ObservableObject {
             
             //Start the DataTask
             dataTask.resume()
-            
-            
-    
         }
-        
-        
-        
     }
     
+
     func drawCard(cardDeckId: String){
         //Draws a card from the API using the deckId
         
@@ -126,15 +121,11 @@ class ContentModel: ObservableObject {
             
             //Start the DataTask
             dataTask.resume()
-            
-            
-    
-        }
-        
 
+        }
     }
     
-    
+      
     func describeCard() -> String {
         var cardDescription = ""
         

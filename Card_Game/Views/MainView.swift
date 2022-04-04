@@ -66,13 +66,21 @@ struct MainView: View {
                 
                 
                 //Image and button will only appear when there is a valid card deck.
-                
                 VStack{
+           
                     //Actual card Image here!
-                    Image("newbackground")
-                        .resizable()
-                        .frame(width: 150, height: 250)
-                        .padding()
+                    
+                    //TODO: When GET NEW DECK OF CARDS, old card is still showing!
+                    AsyncImage(url: URL(string: model.cardDraw?.cards?[0].image! ?? "")) { image in
+                        image.resizable()
+                    } placeholder: {
+                        Color.white
+                    }
+                    .frame(width: 200, height: 250)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(color: .gray, radius: 7, x: 3, y: 3)
+                    
+                    
                     
                     let cardDescription = model.describeCard()
                     

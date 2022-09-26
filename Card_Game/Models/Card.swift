@@ -5,6 +5,9 @@
 //  Created by NICOLAS  TAUTIVA on 1/04/22.
 //
 
+
+//For more info on how the JSON format comes, see https://www.deckofcardsapi.com/
+
 import Foundation
 
 class DeckOfCards: Decodable, Identifiable, ObservableObject {

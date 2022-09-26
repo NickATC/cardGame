@@ -9,5 +9,4 @@ import Foundation
 
 struct Constants {
      static let apiUrl = "https://www.deckofcardsapi.com/api/deck/"
-    
 }

@@ -17,6 +17,7 @@ class ContentModel: ObservableObject {
     @Published var deckOfCards: DeckOfCards?
     @Published var cardDraw: CardDraw?
     
+    
     func createNewDeck(){
         //Creates a new deck using a new API call
     
@@ -70,7 +71,6 @@ class ContentModel: ObservableObject {
         }
     }
     
-
     func drawCard(cardDeckId: String){
         //Draws a card from the API using the deckId
         
@@ -125,8 +125,8 @@ class ContentModel: ObservableObject {
         }
     }
     
-      
     func describeCard() -> String {
+        //A function to make a valid description in text of the card.
         var cardDescription = ""
         
         if remainingCards == nil {
